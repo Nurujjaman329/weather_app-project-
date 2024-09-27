@@ -1,6 +1,8 @@
  
 Weather App apk -> https://drive.google.com/file/d/10906ZoLGAWiD8MP9pT6oz3rznPO9djiW/view?usp=sharing
 
+![HomeScreen](https://github.com/user-attachments/assets/983c7ec2-0a43-4978-9dd5-ca86a9d0740d)
+![forecast_report](https://github.com/user-attachments/assets/244246a0-4a2f-4b95-aa1d-0b4e62fb805e)
 
 
 **Description about my Project :** 
