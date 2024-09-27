@@ -22,7 +22,6 @@ class GradientContainer extends StatelessWidget {
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
             colors: [
-              AppColors.black,
               AppColors.secondaryBlack,
               AppColors.secondaryBlack.withOpacity(.99),
               AppColors.secondaryBlack.withOpacity(.98),
@@ -34,8 +33,6 @@ class GradientContainer extends StatelessWidget {
               AppColors.secondaryBlack.withOpacity(.92),
               AppColors.secondaryBlack.withOpacity(.91),
               AppColors.secondaryBlack.withOpacity(.90),
-              AppColors.darkBlue,
-              AppColors.accentBlue,
               AppColors.lightBlue,
             ],
           ),

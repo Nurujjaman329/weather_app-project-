@@ -29,6 +29,14 @@ class HourlyWeather {
       city: json['city'] != null ? City.fromJson(json['city']) : null,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'cod': cod,
+        'message': message,
+        'cnt': cnt,
+        'list': list.map((entry) => entry.toJson()).toList(),
+        'city': city?.toJson(),
+      };
 }
 
 @immutable
@@ -73,6 +81,19 @@ class WeatherEntry {
       dtTxt: json['dt_txt'],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'dt': dt,
+        'main': main.toJson(),
+        'weather': weather.map((data) => data.toJson()).toList(),
+        'clouds': clouds.toJson(),
+        'wind': wind.toJson(),
+        'visibility': visibility,
+        'pop': pop,
+        'sys': sys?.toJson(),
+        'rain': rain?.toJson(),
+        'dt_txt': dtTxt,
+      };
 }
 
 @immutable
@@ -112,6 +133,18 @@ class Main {
       tempKf: json['temp_kf'].toDouble(),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'temp': temp,
+        'feels_like': feelsLike,
+        'temp_min': tempMin,
+        'temp_max': tempMax,
+        'pressure': pressure,
+        'sea_level': seaLevel,
+        'grnd_level': grndLevel,
+        'humidity': humidity,
+        'temp_kf': tempKf,
+      };
 }
 
 @immutable
@@ -127,6 +160,10 @@ class Clouds {
       all: json['all'],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'all': all,
+      };
 }
 
 @immutable
@@ -148,6 +185,12 @@ class Wind {
       gust: json['gust'].toDouble(),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'speed': speed,
+        'deg': deg,
+        'gust': gust,
+      };
 }
 
 class City {
@@ -183,6 +226,17 @@ class City {
       sunset: json['sunset'],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'coord': coord.toJson(),
+        'country': country,
+        'population': population,
+        'timezone': timezone,
+        'sunrise': sunrise,
+        'sunset': sunset,
+      };
 }
 
 @immutable
@@ -201,6 +255,11 @@ class Coord {
       lon: json['lon'].toDouble(),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'lat': lat,
+        'lon': lon,
+      };
 }
 
 @immutable
@@ -214,6 +273,10 @@ class Rain {
   factory Rain.fromJson(Map<String, dynamic> json) {
     return Rain(threeHours: json['3h'] ?? 0.0);
   }
+
+  Map<String, dynamic> toJson() => {
+        '3h': threeHours,
+      };
 }
 
 @immutable
@@ -229,4 +292,8 @@ class Sys {
       pod: json['pod'] ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'pod': pod,
+      };
 }

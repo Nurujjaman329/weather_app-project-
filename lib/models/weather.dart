@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:flutter/foundation.dart';
 
 @immutable
 class Weather {
@@ -41,7 +42,7 @@ class Weather {
             .toList(),
         base: json['base'] as String,
         main: Main.fromJson(json['main'] as Map<String, dynamic>),
-        visibility: json['visibility'] ?? 0,
+        visibility: json['visibility'],
         wind: Wind.fromJson(json['wind'] as Map<String, dynamic>),
         rain: json['rain'] != null
             ? Rain.fromJson(json['rain'] as Map<String, dynamic>)
@@ -54,6 +55,23 @@ class Weather {
         name: json['name'] as String,
         cod: json['cod'] as int,
       );
+
+  Map<String, dynamic> toJson() => {
+        'coord': coord.toJson(),
+        'weather': weather.map((e) => e.toJson()).toList(),
+        'base': base,
+        'main': main.toJson(),
+        'visibility': visibility,
+        'wind': wind.toJson(),
+        'rain': rain?.toJson(),
+        'clouds': clouds.toJson(),
+        'dt': dt,
+        'sys': sys.toJson(),
+        'timezone': timezone,
+        'id': id,
+        'name': name,
+        'cod': cod,
+      };
 }
 
 @immutable
@@ -70,6 +88,11 @@ class Coord {
         lon: json['lon'] as double,
         lat: json['lat'] as double,
       );
+
+  Map<String, dynamic> toJson() => {
+        'lon': lon,
+        'lat': lat,
+      };
 }
 
 @immutable
@@ -92,14 +115,21 @@ class WeatherData {
         description: json['description'] as String,
         icon: json['icon'] as String,
       );
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'main': main,
+        'description': description,
+        'icon': icon,
+      };
 }
 
 @immutable
 class Main {
-  final int? temp;
-  final double feelsLike;
-  final int? tempMin;
-  final int? tempMax;
+  final double? temp;
+  final double? feelsLike;
+  final double? tempMin;
+  final double? tempMax;
   final int? pressure;
   final int? humidity;
   final int? seaLevel;
@@ -118,17 +148,27 @@ class Main {
     this.visibility,
   });
 
-  factory Main.fromJson(Map<String, dynamic> json) => Main(
-        temp: json['temp'],
-        feelsLike: json['feels_like'] as double,
-        tempMin: json['temp_min'],
-        tempMax: json['temp_max'],
-        pressure: json['pressure'],
-        humidity: json['humidity'],
-        seaLevel: json['sea_level'],
-        grndLevel: json['grnd_level'],
-        visibility: json['visibility'],
-      );
+  factory Main.fromJson(Map<String, dynamic> json) {
+    return Main(
+      temp: (json['temp'] != null) ? json['temp'].toDouble() : null,
+      feelsLike:
+          (json['feels_like'] != null) ? json['feels_like'].toDouble() : null,
+      tempMin: (json['temp_min'] != null) ? json['temp_min'].toDouble() : null,
+      tempMax: (json['temp_max'] != null) ? json['temp_max'].toDouble() : null,
+      pressure: json['pressure'],
+      seaLevel: json['sea_level'],
+      grndLevel: json['grnd_level'],
+      humidity: json['humidity'],
+      visibility:
+          (json['visibility'] != null) ? json['visibility'].toDouble() : null,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'temp': temp,
+        'pressure': pressure,
+        'humidity': humidity,
+      };
 }
 
 @immutable
@@ -148,6 +188,11 @@ class Wind {
         deg: json['deg'] ?? 0,
         gust: json['gust'],
       );
+
+  Map<String, dynamic> toJson() => {
+        'speed': speed,
+        'deg': deg,
+      };
 }
 
 @immutable
@@ -159,6 +204,10 @@ class Rain {
   factory Rain.fromJson(Map<String, dynamic> json) {
     return Rain(oneHour: json['oneHour'] ?? 0.0);
   }
+
+  Map<String, dynamic> toJson() => {
+        '1h': oneHour,
+      };
 }
 
 @immutable
@@ -172,6 +221,10 @@ class Clouds {
   factory Clouds.fromJson(Map<String, dynamic> json) {
     return Clouds(all: json['all'] ?? 0);
   }
+
+  Map<String, dynamic> toJson() => {
+        'all': all,
+      };
 }
 
 @immutable
@@ -197,4 +250,10 @@ class Sys {
         sunrise: json['sunrise'] ?? 0,
         sunset: json['sunset'] ?? 0,
       );
+
+  Map<String, dynamic> toJson() => {
+        'country': country,
+        'sunrise': sunrise,
+        'sunset': sunset,
+      };
 }

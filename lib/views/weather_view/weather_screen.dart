@@ -80,14 +80,6 @@ class WeatherScreen extends ConsumerWidget {
                     color: AppColors.white,
                   ),
                 ),
-                InkWell(
-                  child: Text(
-                    'View full report',
-                    style: TextStyle(
-                      color: AppColors.lightBlue,
-                    ),
-                  ),
-                ),
               ],
             ),
 

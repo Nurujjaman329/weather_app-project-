@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../services/api_services.dart';
 import '../utils/app_colors.dart';
 import 'forecast_report_screen.dart';
-import 'search_screen.dart';
-import 'settings_screen.dart';
 import 'weather_view/weather_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,9 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final _screens = const [
     WeatherScreen(),
-    SearchScreen(),
+    //SearchScreen(),
     ForecastReportScreen(),
-    SettingsScreen(),
+    //SettingsScreen(),
   ];
 
   @override
@@ -51,18 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
               label: '',
             ),
             NavigationDestination(
-              icon: Icon(Icons.search_outlined, color: Colors.white),
-              selectedIcon: Icon(Icons.search, color: Colors.white),
-              label: '',
-            ),
-            NavigationDestination(
               icon: Icon(Icons.wb_sunny_outlined, color: Colors.white),
               selectedIcon: Icon(Icons.wb_sunny, color: Colors.white),
-              label: '',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.settings_outlined, color: Colors.white),
-              selectedIcon: Icon(Icons.settings, color: Colors.white),
               label: '',
             ),
           ],
