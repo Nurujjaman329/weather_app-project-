@@ -96,10 +96,10 @@ class WeatherData {
 
 @immutable
 class Main {
-  final double temp;
+  final int? temp;
   final double feelsLike;
-  final double tempMin;
-  final double tempMax;
+  final int? tempMin;
+  final int? tempMax;
   final int? pressure;
   final int? humidity;
   final int? seaLevel;
@@ -119,10 +119,10 @@ class Main {
   });
 
   factory Main.fromJson(Map<String, dynamic> json) => Main(
-        temp: json['temp'] as double,
+        temp: json['temp'],
         feelsLike: json['feels_like'] as double,
-        tempMin: json['temp_min'] as double,
-        tempMax: json['temp_max'] as double,
+        tempMin: json['temp_min'],
+        tempMax: json['temp_max'],
         pressure: json['pressure'],
         humidity: json['humidity'],
         seaLevel: json['sea_level'],

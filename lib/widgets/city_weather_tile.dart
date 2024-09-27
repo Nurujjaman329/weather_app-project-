@@ -49,7 +49,7 @@ class CityWeatherTile extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${weather.main.temp.round()}°',
+                              '${weather.main.temp!.round()}°',
                               style: TextStyles.h2,
                             ),
                             const SizedBox(height: 5),
