@@ -17,9 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final _screens = const [
     WeatherScreen(),
-    //SearchScreen(),
     ForecastReportScreen(),
-    //SettingsScreen(),
   ];
 
   @override

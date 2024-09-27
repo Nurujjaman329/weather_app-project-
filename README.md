@@ -1,16 +1,11 @@
-# weather_app
+ 
+Weather App apk -> https://drive.google.com/file/d/10906ZoLGAWiD8MP9pT6oz3rznPO9djiW/view?usp=sharing
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+**Description about my Project :** 
 
-A few resources to get you started if this is your first Flutter project:
+Weather-Project application that fetches and displays real-time weather data for the user's location. 
+It leverages the OpenWeather API for current weather and hourly forecasts, while using the OpenMeteo API for weekly weather data. The app also integrates local caching to provide offline access to previously fetched weather information. 
+The main functionalities include fetching weather based on the user’s GPS location, displaying real-time weather data, and gracefully handling cases where location services or internet connectivity are unavailable.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
